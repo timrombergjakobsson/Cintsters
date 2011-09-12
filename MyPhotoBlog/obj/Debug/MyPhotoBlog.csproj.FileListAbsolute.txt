@@ -1,0 +1,11 @@
+C:\code\MyPhotoBlog\MyPhotoBlog\bin\MyPhotoBlog.dll
+C:\code\MyPhotoBlog\MyPhotoBlog\bin\MyPhotoBlog.pdb
+C:\code\MyPhotoBlog\MyPhotoBlog\bin\Nancy.dll
+C:\code\MyPhotoBlog\MyPhotoBlog\bin\Nancy.Hosting.Aspnet.dll
+C:\code\MyPhotoBlog\MyPhotoBlog\bin\Nancy.ViewEngines.Razor.dll
+C:\code\MyPhotoBlog\MyPhotoBlog\bin\Simple.Data.Ado.dll
+C:\code\MyPhotoBlog\MyPhotoBlog\bin\Simple.Data.dll
+C:\code\MyPhotoBlog\MyPhotoBlog\bin\Simple.Data.SqlCe40.dll
+C:\code\MyPhotoBlog\MyPhotoBlog\obj\Debug\ResolveAssemblyReference.cache
+C:\code\MyPhotoBlog\MyPhotoBlog\obj\Debug\MyPhotoBlog.dll
+C:\code\MyPhotoBlog\MyPhotoBlog\obj\Debug\MyPhotoBlog.pdb
