@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
- 
-    <title>My First View</title>
+
+    <title>@Model.Photo.Name</title>
     <link rel="Stylesheet" type="text/css" href="/Content/Css/reset.css" />
     <link rel="Stylesheet" type="text/css" href="/Content/Css/photoblog.css" />
- 
+
     <script type="text/javascript" src="/Content/Scripts/modernizr-1.7.min.js"></script>
 </head>
 <body>
@@ -27,27 +27,27 @@
         <nav>
             @if (Model.HasPrevious)
             {
-                <a id="previous" href="/photos/@Model.PreviousSlug">« Previous</a>
+                <a id="previous" href="/photos/@Model.PreviousSlug">&laquo; Previous</a>
             }
             else
             {
-                <span id="previous">« Previous</span>
+                <span id="previous">&laquo; Previous</span>
             }
- 
+
             <a href="/archives" id="archives">Archives</a>
- 
+
             @if (Model.HasNext)
             {
-                <a id="next" href="/photos/@Model.NextSlug">Next »</a>
+                <a id="next" href="/photos/@Model.NextSlug">Next &raquo;</a>
             }
             else
             {
-                <span id="next">Next »</span>
+                <span id="next">Next &raquo;</span>
             }
         </nav>
     </div>
     <footer>MyPhotoBlog is built with <a href="https://github.com/NancyFX/Nancy">Nancy</a> and <a href="https://github.com/markrendle/Simple.Data">Simple.Data</a>.</footer>
- 
+
     <script type="text/javascript" src="/Content/Scripts/jquery-1.5.2.min.js"></script>
 </body>
 </html>

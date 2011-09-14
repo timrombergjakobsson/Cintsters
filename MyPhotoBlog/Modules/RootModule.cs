@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using MyPhotoBlog.Services;
 
 namespace MyPhotoBlog.Modules
 {
     public class RootModule : PhotoBlogModule
     {
-        public RootModule(IDBFactory dbFactory): base(dbFactory)
+        public RootModule(IDBFactory dbFactory) : base(dbFactory)
         {
             Get["/"] = parameters =>
             {
-                // Get all photos that are published
-                var photos = DB.Photos.FindByAllPublished(true);
+                // Get all photo's that are published
+                var photos = DB.Photos.FindAllByPublished(true);
                 List<Models.Photo> photoList = photos.ToList<Models.Photo>();
 
-                //Order them so the newest come first
+                // Order them so the newest come first
                 photoList = photoList.OrderByDescending(p => p.DatePublished).ToList();
 
-                //Get most recent photo
+                // Get most recent photo
                 var latestPhoto = photoList.FirstOrDefault();
 
                 if (latestPhoto != null)
@@ -32,11 +33,10 @@ namespace MyPhotoBlog.Modules
 
                     return View["photodetail", model];
                 }
-                else 
+                else
                 {
                     return View["nophoto"];
                 }
-                
             };
         }
     }

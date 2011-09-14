@@ -51,8 +51,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Simple.Data.Ado.0.9.5.3\lib\net40\Simple.Data.Ado.dll</HintPath>
     </Reference>
-    <Reference Include="Simple.Data.SqlCe40">
-      <HintPath>..\packages\Simple.Data.SqlCompact40.0.9.5.1\lib\net40\Simple.Data.SqlCe40.dll</HintPath>
+    <Reference Include="Simple.Data.SqlCe40, Version=0.9.5.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Simple.Data.SqlCompact40.0.9.5.3\lib\net40\Simple.Data.SqlCe40.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System.Web.DynamicData" />
