@@ -65,6 +65,23 @@ namespace MyPhotoBlog.Modules
  
         return View["yearly-archives", model];
     };
-   }
-  }
-}
+         Get[@"/(?<year>19[0-9]{2}|2[0-9]{3})/(?<month>[1-9]|1[012])"] = parameters =>
+            {
+                int year = Convert.ToInt32((string)parameters.year);
+                int month = Convert.ToInt32((string)parameters.month);
+                DateTime start = new DateTime(year, month, 1);
+                DateTime end = start.AddMonths(1);
+
+                List<Photo> photos = DB.Photos.FindAllByDatePublishedAndPublished(start.ToString("yyyy-MM-dd").to(end.ToString("yyyy-MM-dd")), true).OrderByDatePublished().ToList<Photo>();
+
+                var model = new MonthlyArchives
+                {
+                    Photos = photos,
+                    Month = start.ToString("MMMM yyyy")
+                };
+
+                return View["monthly-archives", model];
+           };
+        }
+      }
+    }
