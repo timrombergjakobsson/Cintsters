@@ -10,34 +10,33 @@ namespace MyPhotoBlog.Modules
     {
         public RootModule(IDBFactory dbFactory) : base(dbFactory)
         {
-            Get["/"] = parameters =>
+           Get["/"] = parameters =>
+        {
+        var photos = DB.Photos.FindAllByPublished(true).OrderByDatePublishedDescending().Take(2);
+        List<Models.Photo> photoList = photos.ToList<Models.Photo>();
+ 
+        if (photoList.Count > 0)
+        {
+            var model = new Models.PhotoDetail();
+            model.Photo = photoList[0];
+            model.NextSlug = String.Empty;
+ 
+            if (photoList.Count > 1) model.PreviousSlug = photoList[1].Slug;
+            else model.PreviousSlug = String.Empty;
+ 
+            IEnumerable<Models.Comment> comments = DB.Comments
+                                                 .FindAll(DB.Comments.PhotoId == model.Photo.Id && DB.Comments.Approved == true)
+                                                 .Cast<Models.Comment>();
+ 
+            if (comments != null) model.Comments = comments.ToList();
+ 
+            return View["photodetail", model];
+            }
+            else
             {
-                // Get all photo's that are published
-                var photos = DB.Photos.FindAllByPublished(true);
-                List<Models.Photo> photoList = photos.ToList<Models.Photo>();
-
-                // Order them so the newest come first
-                photoList = photoList.OrderByDescending(p => p.DatePublished).ToList();
-
-                // Get most recent photo
-                var latestPhoto = photoList.FirstOrDefault();
-
-                if (latestPhoto != null)
-                {
-                    var model = new Models.PhotoDetail();
-                    model.Photo = latestPhoto;
-                    model.NextSlug = String.Empty;
-
-                    if (photoList.Count > 1) model.PreviousSlug = photoList[1].Slug;
-                    else model.PreviousSlug = String.Empty;
-
-                    return View["photodetail", model];
-                }
-                else
-                {
-                    return View["nophoto"];
-                }
-            };
+            return View["nophoto"];
+            }
+          };
         }
     }
 }

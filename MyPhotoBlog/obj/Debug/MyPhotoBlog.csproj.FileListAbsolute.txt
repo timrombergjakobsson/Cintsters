@@ -9,3 +9,4 @@ C:\code\MyPhotoBlog\MyPhotoBlog\bin\Simple.Data.SqlCe40.dll
 C:\code\MyPhotoBlog\MyPhotoBlog\obj\Debug\ResolveAssemblyReference.cache
 C:\code\MyPhotoBlog\MyPhotoBlog\obj\Debug\MyPhotoBlog.dll
 C:\code\MyPhotoBlog\MyPhotoBlog\obj\Debug\MyPhotoBlog.pdb
+C:\code\MyPhotoBlog\MyPhotoBlog\bin\System.Web.Razor.dll
